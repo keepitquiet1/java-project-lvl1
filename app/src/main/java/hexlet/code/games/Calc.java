@@ -1,4 +1,5 @@
 package hexlet.code.games;
+
 import hexlet.Utils;
 import hexlet.code.Engine;
 
@@ -7,7 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Calc {
-private static String userName;
+    private static String userName;
+
     public static void runGame() {
         Scanner scanner = new Scanner(System.in);
         if (userName == null) {
