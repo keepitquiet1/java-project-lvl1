@@ -28,31 +28,36 @@ public class Engine {
             }
             Even.runGame();
         } else {
-            System.out.printf("Incorrect! The correct answer is %s. Lets try again %s! %n", answers.get(number % 2), Even.getUserName());
+            System.out.printf("Incorrect! The correct answer is %s. Lets try again %s! %n",
+                    answers.get(number % 2), Even.getUserName());
         }
 
     }
 
     public static void calc(int a, int b, char sign, int input) {
         switch (sign) {
-            case '+':
+            case '+' -> {
                 if (a + b != input) {
                     Utils.calcIsNotCorrect(a + b);
                     return;
                 }
-                break;
-            case '-':
+            }
+            case '-' -> {
                 if (a - b != input) {
                     Utils.calcIsNotCorrect(a - b);
                     return;
                 }
-                break;
-            case '*':
+            }
+            case '*' -> {
                 if (a * b != input) {
                     Utils.calcIsNotCorrect(a * b);
                     return;
                 }
-                break;
+            }
+            default -> {
+                System.out.println("Something wrong with sign!");
+                return;
+            }
         }
         System.out.println("Correct!");
 
