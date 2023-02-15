@@ -19,8 +19,9 @@ public class Even {
         System.out.println("Question: " + rand);
         System.out.println("Your answer: ");
         String input = scanner.nextLine();
-        if (input != null)
-            Engine.even(rand, input);
+        Engine.even(rand, input);
+        if (input != null) {
+        }
         scanner.close();
     }
 

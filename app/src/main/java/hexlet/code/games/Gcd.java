@@ -10,7 +10,9 @@ public class Gcd {
 
     public static void runGame() {
         Scanner scanner = new Scanner(System.in);
-        if (name == null) name = Utils.getName(scanner);
+        if (name == null) {
+            name = Utils.getName(scanner);
+        }
         System.out.println("Find the greatest common divisor of given numbers.");
         int a = (int) (Math.random() * 100);
         int b = (int) (Math.random() * 100);

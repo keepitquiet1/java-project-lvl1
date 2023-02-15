@@ -10,7 +10,9 @@ public class Progression {
 
     public static void runGame() {
         Scanner scanner = new Scanner(System.in);
-        if (name == null) name = Utils.getName(scanner);
+        if (name == null) {
+            name = Utils.getName(scanner);
+        }
         System.out.println("What number is missing in the progression?");
         int lengthArray = Utils.getRandomNumber(5, 10);
         int secretIndex = Utils.getRandomNumber(0, lengthArray - 1);

@@ -85,7 +85,7 @@ public class Engine {
         Gcd.runGame();
     }
 
-    public static void progression(int answer, int arr[], int secretIndex) {
+    public static void progression(int answer, int[] arr, int secretIndex) {
         if (arr[secretIndex] != answer) {
             System.out.println(answer + " is wrong answer ;(. Correct answer was " + arr[secretIndex] + ".");
 
