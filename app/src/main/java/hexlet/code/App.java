@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.*;
 
 import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -18,30 +19,14 @@ public class App {
         String selectedGame = scanner.next();
         System.out.println();
         switch (selectedGame) {
-            case "1":
-                Cli.greet();
-                break;
-            case "2":
-                Even.runGame();
-                break;
-            case "3":
-                Calc.runGame();
-                break;
-            case "4":
-                Gcd.runGame();
-                break;
-            case "5":
-                Progression.runGame();
-                break;
-            case "6":
-                Prime.runGame();
-                break;
-            case "0":
-                System.out.println("Goodbye!");
-                break;
-            default:
-                System.out.println("Invalid number entered. Restart the game.");
-                break;
+            case "1" -> Cli.greet();
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> Gcd.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
+            case "0" -> System.out.println("Goodbye!");
+            default -> System.out.println("Invalid number entered. Restart the game.");
         }
         scanner.close();
     }
