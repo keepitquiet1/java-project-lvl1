@@ -1,32 +1,11 @@
 package hexlet;
 
-import java.util.Scanner;
-
 public class Utils {
-
-    static String name;
 
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
 
-
-
-    public static void calcIsNotCorrect(int correctAnswer) {
-        System.out.printf("Incorrect! The correct answer is %d. Lets try again %s! %n", correctAnswer, name);
-    }
-
-    public static void isNotCorrect(String correctAnswer) {
-        System.out.printf("Incorrect! The correct answer is %s. Lets try again %s! %n", correctAnswer, name);
-    }
-
-    public static void congrats() {
-        System.out.printf("Congrats, %s! You won! %n", name);
-    }
-
-    public static String getName() {
-        return name;
-    }
 
     public static int gcdByEuclidAlgorithm(int n1, int n2) {
         if (n2 == 0) {
@@ -36,7 +15,6 @@ public class Utils {
     }
 
     public static boolean isPrime(int n) {
-        int count = 0;
 
         if (n < 2) {
             return false;

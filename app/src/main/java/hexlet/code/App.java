@@ -24,11 +24,11 @@ public class App {
         System.out.println();
         switch (selectedGame) {
             case "1" -> Cli.greet();
-//            case "2" -> Even.runGame();
+            case "2" -> Even.runGame();
             case "3" -> Calc.runGame();
-//            case "4" -> Gcd.runGame();
-//            case "5" -> Progression.runGame();
-//            case "6" -> Prime.runGame();
+            case "4" -> Gcd.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
             case "0" -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid number entered. Restart the game.");
         }

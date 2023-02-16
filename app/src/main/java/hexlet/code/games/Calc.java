@@ -29,21 +29,18 @@ public class Calc {
 
     // Генерация данных в отдельном методе. Упрощает анализ кода.
     private static String[] generateRoundData() {
-        var number1 = generateNumber(MIN, MAX);
-        var number2 = generateNumber(MIN, MAX);
+        var number1 = Utils.getRandomNumber(MIN, MAX);
+        var number2 = Utils.getRandomNumber(MIN, MAX);
 
-        var indexOperator = generateNumber(0, OPERATORS.length - 1);
+        var indexOperator = Utils.getRandomNumber(0, OPERATORS.length - 1);
         var operator = OPERATORS[indexOperator];
 
         var question = number1 + " " + operator + " " + number2;
         var answer = Integer.toString(calculate(operator, number1, number2));
 
-        return new String[] {question, answer};
+        return new String[]{question, answer};
     }
 
-    private static int generateNumber(int min, int max){
-        return Utils.getRandomNumber(min, max);
-    }
 
     public static void runGame() {
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
