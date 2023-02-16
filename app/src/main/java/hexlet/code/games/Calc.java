@@ -3,31 +3,55 @@ package hexlet.code.games;
 import hexlet.Utils;
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Calc {
-    private static String userName;
+
+    private static final int MIN = 1;
+    private static final int MAX = 20;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+
+    // Описание задается на уровне модуля (а не внутри методов), так проще видеть ключевые части игры
+    private static final String DESCRIPTION =
+            "What is the result of the expression?";
+
+
+    private static int calculate(char operator, int number1, int number2) {
+        switch (operator) {
+            case '+':
+                return number1 + number2;
+            case '-':
+                return number1 - number2;
+            case '*':
+                return number1 * number2;
+            default:
+                throw new RuntimeException("Unknown operator: " + operator);
+        }
+    }
+
+    // Генерация данных в отдельном методе. Упрощает анализ кода.
+    private static String[] generateRoundData() {
+        var number1 = generateNumber(MIN, MAX);
+        var number2 = generateNumber(MIN, MAX);
+
+        var indexOperator = generateNumber(0, OPERATORS.length - 1);
+        var operator = OPERATORS[indexOperator];
+
+        var question = number1 + " " + operator + " " + number2;
+        var answer = Integer.toString(calculate(operator, number1, number2));
+
+        return new String[] {question, answer};
+    }
+
+    private static int generateNumber(int min, int max){
+        return Utils.getRandomNumber(min, max);
+    }
 
     public static void runGame() {
-        Scanner scanner = new Scanner(System.in);
-        if (userName == null) {
-            userName = Utils.getName(scanner);
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i += 1) {
+            roundsData[i] = generateRoundData();
         }
 
-        int a = (int) (Math.random() * 100);
-        int b = (int) (Math.random() * a);
-        List<Character> sign = new ArrayList<>();
-        sign.add('+');
-        sign.add('-');
-        sign.add('*');
-        char s = sign.get((int) (Math.random() * 3));
-
-        System.out.println("What is the result of the expression?");
-        System.out.printf("Question: %d %c %d = ", a, s, b);
-        Engine.calc(a, b, s, scanner.nextInt());
-        scanner.close();
-
+        Engine.run(DESCRIPTION, roundsData);
     }
 }
