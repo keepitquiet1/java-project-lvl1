@@ -4,6 +4,7 @@ import hexlet.Utils;
 import hexlet.code.Engine;
 
 
+
 public class Prime {
     private static final int MAX = 100;
     private static final String DESCRIPTION =
