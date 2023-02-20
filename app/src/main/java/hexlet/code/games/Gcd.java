@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.Utils;
+import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 public class Gcd {
@@ -19,9 +19,17 @@ public class Gcd {
     private static String[] generateRoundData() {
         int number1 = Utils.getRandomNumber(1, MAX);
         int number2 = Utils.getRandomNumber(1, MAX);
-        int gcd = Utils.gcdByEuclidAlgorithm(number1, number2);
+        int gcd = gcdByEuclidAlgorithm(number1, number2);
         return new String[]{number1 + " " + number2, Integer.toString(gcd)};
     }
+
+    private static int gcdByEuclidAlgorithm(int n1, int n2) {
+        if (n2 == 0) {
+            return n1;
+        }
+        return gcdByEuclidAlgorithm(n2, n1 % n2);
+    }
+
 
 
 }

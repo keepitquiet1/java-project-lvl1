@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.Utils;
+import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 
@@ -9,17 +9,17 @@ public class Even {
     private static final String DESCRIPTION =
             "Answer 'yes' if number even otherwise answer 'no'.";
 
-    private static String checkIfEven(int number) {
+    private static boolean isEven(int number) {
         if (number % 2 == 0) {
-            return "yes";
+            return true;
         } else {
-            return "no";
+            return false;
         }
     }
 
     private static String[] generateRoundData() {
         var number = Utils.getRandomNumber(0, MAX);
-        return new String[]{Integer.toString(number), checkIfEven(number)};
+        return new String[]{Integer.toString(number), isEven(number) ? "yes" : "no"};
     }
 
     public static void runGame() {

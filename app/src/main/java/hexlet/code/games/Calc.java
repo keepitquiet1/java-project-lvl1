@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.Utils;
+import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 public class Calc {
@@ -27,7 +27,6 @@ public class Calc {
         }
     }
 
-    // Генерация данных в отдельном методе. Упрощает анализ кода.
     private static String[] generateRoundData() {
         var number1 = Utils.getRandomNumber(MIN, MAX);
         var number2 = Utils.getRandomNumber(MIN, MAX);
