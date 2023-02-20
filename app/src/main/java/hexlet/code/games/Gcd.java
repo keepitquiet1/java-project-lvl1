@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.Utils;
+import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 public class Gcd {

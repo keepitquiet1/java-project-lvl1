@@ -1,4 +1,4 @@
-package hexlet;
+package hexlet.code;
 
 public class Utils {
 
