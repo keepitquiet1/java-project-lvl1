@@ -10,11 +10,7 @@ public class Even {
             "Answer 'yes' if number even otherwise answer 'no'.";
 
     private static boolean isEven(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
 
     private static String[] generateRoundData() {
