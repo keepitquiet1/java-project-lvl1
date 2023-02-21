@@ -27,7 +27,7 @@ public class Progression {
         int step = Utils.getRandomNumber(1, 9);
         int first = Utils.getRandomNumber(0, 100);
         String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
-        String answer = progression[hiddenIndex];
+        String answer = new String(progression[hiddenIndex]);
 
         progression[hiddenIndex] = "..";
         String question = String.join(" ", progression);
