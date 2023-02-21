@@ -10,12 +10,12 @@ public class Engine {
     public static void run(String description, String[][] roundsData) {
         Scanner scanner = new Scanner(System.in);
         getName(scanner);
-        for (int i = 0; i < roundsData.length; i++) {
+        for (String[] round : roundsData) {
             System.out.println(description);
-            System.out.println(roundsData[i][0]);
-            if (!scanner.nextLine().equalsIgnoreCase(roundsData[i][1])) {
+            System.out.println(round[0]);
+            if (!scanner.nextLine().equalsIgnoreCase(round[1])) {
                 System.out.printf("Incorrect! The correct answer is %s. Lets try again, %s! %n",
-                        roundsData[i][1], name);
+                        round[1], name);
                 return;
             }
             System.out.println("Correct!");

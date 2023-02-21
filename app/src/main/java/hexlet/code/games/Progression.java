@@ -6,6 +6,7 @@ import hexlet.code.Engine;
 
 public class Progression {
     private static final int MAX = 100;
+    private static final int PROGRESSION_LENGTH = 7;
     private static String answer = "none";
 
     private static final String DESCRIPTION = "What number is missing in the progression?";
@@ -22,25 +23,25 @@ public class Progression {
     }
 
     private static String[] generateRoundData() {
+        int hiddenIndex = Utils.getRandomNumber(0, PROGRESSION_LENGTH - 1);
+        int step = Utils.getRandomNumber(1, 9);
+        int first = Utils.getRandomNumber(0, 100);
+        String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
+        String answer = progression[hiddenIndex];
 
-        return new String[]{makeProgression(), answer};
+        progression[hiddenIndex] = "..";
+        String question = String.join(" ", progression);
+
+        return new String[]{question, answer};
     }
 
-    private static String makeProgression() {
-        int length = Utils.getRandomNumber(5, 10);
-        int secretIndex = Utils.getRandomNumber(0, length - 1);
-        int step = Utils.getRandomNumber(1, 9);
-        int element = Utils.getRandomNumber(0, 100);
-        String question = "";
-        for (int i = 0; i < length; i++) {
-            if (i == secretIndex) {
-                question += ".. ";
-                answer = Integer.toString(element);
-            } else {
-                question += element + " ";
-            }
-            element += step;
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+
+        for (int i = 0; i < length; i += 1) {
+            progression[i] = Integer.toString(first + i * step);
         }
-        return question;
+
+        return progression;
     }
 }
